@@ -1,4 +1,3 @@
-# DataOwlWeb
 ![DataOwl Logo](https://raw.githubusercontent.com/lucaswfh/dataowlweb/master/src/assets/img/Logo.png)
 
 ## Documentacion
