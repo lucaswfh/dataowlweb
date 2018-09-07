@@ -1,9 +1,16 @@
-<div style="text-align:center">
-  <img width="500" alt="DataOwl Logo" src="../assets/img/Logo.png">
-</div>
-<h2> List of photos </h2>
-<div class="row">
-  <div class="column">
-    <img [src]="images[0]?.image" style="width:100%">
+<h2> Unchecked items </h2>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let img of images" class="col-md-4">
+        <div class="thumbnail">
+          <a href="#">
+            <img [src]="img.image" style="width:100%">
+            <div class="caption">
+              <p>Sent By:  </p>
+              <p>Coordinates: </p>
+            </div>
+          </a>
+        </div>
+    </div>
   </div>
 </div>
