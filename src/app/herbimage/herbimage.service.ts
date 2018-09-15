@@ -11,7 +11,7 @@ export class HerbimageService {
 
     getImages(): Observable<any[]> {
         return this.http.get<any[]>(
-            "http://localhost:3000"
+            "https://pure-wildwood-74137.herokuapp.com/allimages"
         )
     }
 
