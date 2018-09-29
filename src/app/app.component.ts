@@ -13,7 +13,7 @@ export class AppComponent {
 
   images = []
 
-  constructor(private imageService: HerbimageService, private sanitizer:DomSanitizer) { 
+  constructor(private imageService: HerbimageService, private sanitizer:DomSanitizer) {
     imageService.getImages().subscribe((images:any[]) => {
       images.forEach(img => {
         this.images.push({

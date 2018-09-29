@@ -11,7 +11,7 @@ export class HerbimageService {
 
     getImages(): Observable<any[]> {
         return this.http.get<any[]>(
-            "https://pure-wildwood-74137.herokuapp.com/allimages"
+            "https://data-owl.herokuapp.com/allimages"
         )
     }
 
