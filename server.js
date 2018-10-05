@@ -9,12 +9,12 @@ const app = express();
 
 // Run the app by serving the static files
 // in the dist directory
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/dist/DataOwlWeb'));
 
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/index.html'));
+app.get('/*', function(req,res) {
+  res.sendFile(path.join(__dirname+'/dist/DataOwlWeb/index.html'));
 });
 
 // Start the app by listening on the default
