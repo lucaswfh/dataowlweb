@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HerbimageService} from "../herbimage/herbimage.service";
 import {DomSanitizer} from "@angular/platform-browser";
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-landing',
@@ -11,16 +11,29 @@ export class LandingComponent implements OnInit {
 
   images = []
 
-  constructor(private imageService: HerbimageService, private sanitizer: DomSanitizer) {
+  posts = [] 
+
+  constructor(private postService: PostService, private sanitizer: DomSanitizer) {
   }
 
   ngOnInit() {
-    this.imageService.getImages().subscribe((images:any[]) => {
-      images.forEach(img => {
-        this.images.push({
-          "image": this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' + img.image)
-        });
-      });
+    // this.imageService.getImages().subscribe((images:any[]) => {
+    //   images.forEach(img => {
+    //     this.images.push({
+    //       "image": this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' + img.image)
+    //     });
+    //   });
+    // });
+    this.postService.getAllPosts().subscribe((posts:any[]) => {
+      posts.forEach(post => {
+        this.posts.push({
+          _id: post._id,
+          nickname: post.nickname,
+          images: post.images.map(image => 
+            this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' + image)
+          )
+        })
+      })
     });
   }
 

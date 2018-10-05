@@ -1,10 +1,10 @@
 <h2> Unchecked items </h2>
 <div class="container">
   <div class="row">
-    <div *ngFor="let img of images" class="col-md-4">
+    <div *ngFor="let post of posts" class="col-md-4">
         <div class="thumbnail">
           <a href="#">
-            <img [src]="img.image" style="width:100%">
+            <img [src]="post.images[0]" style="width:100%">
             <div class="caption">
               <p>Sent By:  </p>
               <p>Coordinates: </p>
