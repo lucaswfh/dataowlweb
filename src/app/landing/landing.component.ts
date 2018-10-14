@@ -29,7 +29,7 @@ export class LandingComponent implements OnInit {
         this.posts.push({
           _id: post._id,
           //nickname: post.nickname,
-          images: post.images(image =>
+          images: post.image(image =>
             this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' + image)
           )
         })
