@@ -26,6 +26,7 @@ export class LandingComponent implements OnInit {
     // });
     this.postService.getAllPosts().subscribe((posts:any[]) => {
       posts.forEach(post => {
+        console.log(post)
         this.posts.push({
           _id: post._id,
           //nickname: post.nickname,
