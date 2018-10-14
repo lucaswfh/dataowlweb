@@ -17,16 +17,8 @@ export class LandingComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.imageService.getImages().subscribe((images:any[]) => {
-    //   images.forEach(img => {
-    //     this.images.push({
-    //       "image": this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' + img.image)
-    //     });
-    //   });
-    // });
     this.postService.getAllPosts().subscribe((posts:any[]) => {
       posts.forEach(post => {
-        console.log(post)
         this.posts.push({
           _id: post._id,
           //nickname: post.nickname,
