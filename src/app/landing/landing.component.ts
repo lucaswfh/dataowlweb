@@ -26,14 +26,13 @@ export class LandingComponent implements OnInit {
     // });
     this.postService.getAllPosts().subscribe((posts:any[]) => {
       posts.forEach(post => {
-        console.log(post);
-        /*this.posts.push({
+        this.posts.push({
           _id: post._id,
-          nickname: post.nickname,
-          images: post.images.map(image =>
+          //nickname: post.nickname,
+          images: post.images(image =>
             this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' + image)
           )
-        })*/
+        })
       })
     });
   }
