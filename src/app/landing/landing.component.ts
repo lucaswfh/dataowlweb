@@ -11,7 +11,7 @@ export class LandingComponent implements OnInit {
 
   images = []
 
-  posts = [] 
+  posts = []
 
   constructor(private postService: PostService, private sanitizer: DomSanitizer) {
   }
@@ -26,13 +26,14 @@ export class LandingComponent implements OnInit {
     // });
     this.postService.getAllPosts().subscribe((posts:any[]) => {
       posts.forEach(post => {
-        this.posts.push({
+        console.log(post);
+        /*this.posts.push({
           _id: post._id,
           nickname: post.nickname,
-          images: post.images.map(image => 
+          images: post.images.map(image =>
             this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' + image)
           )
-        })
+        })*/
       })
     });
   }
