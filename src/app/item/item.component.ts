@@ -17,12 +17,12 @@ export class ItemComponent implements OnInit {
   public sub: any;
   public item: Item;
   public user: User;
-  private type : string;
-  private lat: number;
-  private lng: number;
-  private name: string;
-  private lastName: string;
-  private picture: string;
+  public type : string;
+  public lat: number;
+  public lng: number;
+  public name: string;
+  public lastName: string;
+  public picture: string;
   public selectedType: string;
 
   constructor(private route: ActivatedRoute,
