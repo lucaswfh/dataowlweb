@@ -4,9 +4,12 @@ import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import {AppRoutingModule} from "./app-routing.module";
+import { AppRoutingModule } from './app-routing.module';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { FooterComponent } from './footer/footer.component';
+import { ItemComponent } from './item/item.component';
+import {ItemService} from "./services/item.service";
+import {UserService} from "./services/user.service";
 
 
 @NgModule({
@@ -15,14 +18,15 @@ import { FooterComponent } from './footer/footer.component';
     LandingComponent,
     NavbarComponent,
     WelcomeComponent,
-    FooterComponent
+    FooterComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ItemService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

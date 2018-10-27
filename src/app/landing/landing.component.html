@@ -2,12 +2,11 @@
 <div class="container">
   <div class="row">
     <div *ngFor="let post of posts" class="col-md-4">
-        <div class="thumbnail">
-          <a href="#">
+        <div class="thumbnail" routerLinkActive="active">
+          <a [routerLink]="['/item', post._id]">
             <img [src]="post.images[0]" style="width:100%">
             <div class="caption">
-              <p>Sent By:  </p>
-              <p>Coordinates: </p>
+              <p>Sent By: {{post.email}} </p>
             </div>
           </a>
         </div>
