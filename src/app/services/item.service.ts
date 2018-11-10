@@ -6,7 +6,8 @@ import {Item} from "../model/item";
 @Injectable()
 export class ItemService {
 
-  URL = 'https://data-owl.herokuapp.com/post';
+  // URL = 'https://data-owl.herokuapp.com/post';
+  URL = 'http://localhost:3000/post';
 
   httpOptions = {
     headers: new HttpHeaders({

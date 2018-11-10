@@ -35,6 +35,7 @@ export class ItemComponent implements OnInit {
       this.itemService.getItemById(this.id)
         .subscribe((item: Item) => {
             this.item = item;
+            console.log(item);
             this.userService.getUserByEmail(this.item.email)
               .subscribe((user: User) => {
                 this.user = user;
