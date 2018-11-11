@@ -1,3 +1,4 @@
+import { AuthService } from './auth/auth.service';
 import { Component } from '@angular/core';
 import { DomSanitizer } from '../../node_modules/@angular/platform-browser';
 
@@ -10,7 +11,8 @@ export class AppComponent {
 
   title = 'DataOwlWeb';
 
-  constructor(private sanitizer:DomSanitizer) {
+  constructor(public auth: AuthService) {
+    auth.handleAuthentication();
   }
 
 }

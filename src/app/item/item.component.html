@@ -21,16 +21,16 @@
 
         </div>
         <div class="details col-md-6">
-          <h3 class="product-title">{{this.type}}</h3>
+          <h3 class="product-title">{{this.post?.type}}</h3>
 
           <div class="avatar">
-            <img src="{{this.picture}}" alt="Circle Image" class="img-circle img-no-padding img-responsive" style="width: 30px">
+            <img src="{{this.user?.picture}}" alt="Circle Image" class="img-circle img-no-padding img-responsive" style="width: 30px">
           </div>
-          <h4 class="user">User: <span>{{this.name}} {{this.lastName}}</span></h4>
+          <h4 class="user">User: <span>{{this.user?.givenName}} {{this.user?.familyName}}</span></h4>
           <h5 class="coordinates">Coordinates:
             <ul>
-              <li title="small">Latitude: <span>{{this.lat}}</span></li>
-              <li title="medium">Longitude: <span>{{this.lng}}</span></li>
+              <li title="small">Latitude: <span>{{this.post?.geolocation.lat}}</span></li>
+              <li title="medium">Longitude: <span>{{this.post?.geolocation.lng}}</span></li>
             </ul>
             <button class="btn btn-success">Go to map</button>
             <hr>
@@ -38,8 +38,8 @@
           <h3 class="product-title">
             <div class="form-group">
               <label for="types">Type of the image:</label>
-              <select class="form-control" id="types" ngModel="selectedType">
-                <option selected>Select Type...</option>
+              <select class="form-control" id="types" [(ngModel)]="this.selectedType">
+                <option selected>{{selectType}}</option>
                 <option>Pasto cuaresma (Digitaria sanguinalis)</option>
                 <option>Capín (Echinochloa grusgalli)</option>
                 <option>Pata de ganso (Eleusine indica)</option>
@@ -51,6 +51,7 @@
             </div>
             <button class="btn btn-success" (click)="updateType()">Update</button>
           </h3>
+          <button class="btn btn-warning" (click)="updateType()">Done</button>
         </div>
       </div>
     </div>

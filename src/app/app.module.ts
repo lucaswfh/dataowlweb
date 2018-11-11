@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
@@ -10,6 +11,8 @@ import { FooterComponent } from './footer/footer.component';
 import { ItemComponent } from './item/item.component';
 import {ItemService} from "./services/item.service";
 import {UserService} from "./services/user.service";
+import { AuthService } from './auth/auth.service';
+import { CallbackComponent } from './callback/callback.component';
 
 
 @NgModule({
@@ -19,14 +22,16 @@ import {UserService} from "./services/user.service";
     NavbarComponent,
     WelcomeComponent,
     FooterComponent,
-    ItemComponent
+    ItemComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [ItemService, UserService],
+  providers: [ItemService, UserService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
