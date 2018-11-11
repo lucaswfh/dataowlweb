@@ -4,6 +4,7 @@ import {ItemService} from "../services/item.service";
 import {UserService} from "../services/user.service";
 import { Post, addItem } from '../model/post';
 import { User } from '../model/user';
+import {AuthService} from "../auth/auth.service";
 
 @Component({
   selector: 'app-item',
@@ -21,7 +22,8 @@ export class ItemComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private itemService: ItemService,
-    private userService: UserService) { }
+    private userService: UserService,
+    public auth: AuthService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -57,7 +59,7 @@ export class ItemComponent implements OnInit {
         console.log(post);
       });
     } else {
-      // TODO: avisar que no se selecciono ningun type 
+      // TODO: avisar que no se selecciono ningun type
     }
   }
 
