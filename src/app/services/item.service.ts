@@ -35,6 +35,13 @@ export class ItemService {
     );
   }
 
+  getPlantTypes(): Observable<any> {
+    return this.http.get<any>(
+      this.URL + 'planttypes',
+      this.httpOptions
+    );
+  }
+
   updateType(newType: string, post: Post, access_token: string): Observable<Post> {
     console.log(access_token);
     return this.http.put<Post>(

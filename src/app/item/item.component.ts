@@ -14,7 +14,7 @@ import {AuthService} from "../auth/auth.service";
 export class ItemComponent implements OnInit {
 
   public selectType: string = 'Select Type...';
-
+  public planttypes = [];
   public selectedType: string;
   public post:Post;
   public user: User;
@@ -39,6 +39,12 @@ export class ItemComponent implements OnInit {
               });
             });
         })
+    });
+
+    this.itemService.getPlantTypes().subscribe(data => { 
+      data.forEach(d => {
+        this.planttypes.push(d.plantType);
+      });
     });
   }
 
