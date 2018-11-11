@@ -13,7 +13,7 @@ import {AuthService} from "../auth/auth.service";
 })
 export class ItemComponent implements OnInit {
 
-  public selectType: string = 'Select Type...';
+  public selectTypeDefault: string = 'Select Type...';
   public planttypes = [];
   public selectedType: string;
   public post:Post;
@@ -30,7 +30,6 @@ export class ItemComponent implements OnInit {
       this.itemService.getPostById(params['itemId'])
         .subscribe((post:Post) => {
             this.post = post;
-            console.log(post);
             this.post._imageIds.forEach(imageId => {
               this.itemService.getImageById(imageId)
               .subscribe(image => {
@@ -41,7 +40,7 @@ export class ItemComponent implements OnInit {
         })
     });
 
-    this.itemService.getPlantTypes().subscribe(data => { 
+    this.itemService.getPlantTypes().subscribe(data => {
       data.forEach(d => {
         this.planttypes.push(d.plantType);
       });
@@ -57,7 +56,7 @@ export class ItemComponent implements OnInit {
   }
 
   updateType() {
-    if (this.selectedType != this.selectType) {
+    if (this.selectedType != this.selectTypeDefault) {
       const access_token = localStorage.getItem('access_token');
       console.log(access_token);
       this.itemService.updateType(this.selectedType, this.post, access_token).subscribe(post => {

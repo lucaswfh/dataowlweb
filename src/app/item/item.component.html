@@ -39,14 +39,8 @@
             <div class="form-group">
               <label for="types">Type of the image:</label>
               <select class="form-control" id="types" [(ngModel)]="this.selectedType">
-                <option selected>{{selectType}}</option>
-                <option>Pasto cuaresma (Digitaria sanguinalis)</option>
-                <option>Capín (Echinochloa grusgalli)</option>
-                <option>Pata de ganso (Eleusine indica)</option>
-                <option>Rama negra (Conyza bonariensis)</option>
-                <option>Yuyo colorado (Amaranthus hybridus)</option>
-                <option>Malva cimarrona (Anoda cristata)</option>
-                <option>Quinoa blanca (Chenopodium album)</option>
+                  <option>{{this.selectTypeDefault}}</option>
+                  <option *ngFor="let p of planttypes">{{p}}</option>
               </select>
             </div>
             <button *ngIf="auth.isAuthenticated()" class="btn btn-success" (click)="updateType()">Update</button>
