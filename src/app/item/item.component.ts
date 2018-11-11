@@ -15,7 +15,7 @@ import {AuthService} from "../auth/auth.service";
 export class ItemComponent implements OnInit {
 
   public selectTypeDefault: string = 'Select Type...';
-  public planttypes = [];
+  public planttypes = null;
   public selectedType: string;
   public post:Post;
   public user: User;
