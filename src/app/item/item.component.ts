@@ -1,3 +1,4 @@
+import { DomSanitizer } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ItemService} from "../services/item.service";
@@ -23,7 +24,8 @@ export class ItemComponent implements OnInit {
     private route: ActivatedRoute,
     private itemService: ItemService,
     private userService: UserService,
-    public auth: AuthService) { }
+    public auth: AuthService,
+    public sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -64,6 +66,10 @@ export class ItemComponent implements OnInit {
     } else {
       // TODO: avisar que no se selecciono ningun type
     }
+  }
+
+  postImages() {
+    return this.post.items;
   }
 
 }

@@ -19,6 +19,7 @@ export class LandingComponent implements OnInit {
   ngOnInit() {
     this.postService.getAllPosts().subscribe((posts:any[]) => {
       posts.forEach(post => {
+        console.log(post.image) 
         this.posts.push({
           _id: post._id,
           //nickname: post.nickname,

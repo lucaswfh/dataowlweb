@@ -4,6 +4,8 @@ import {Comment} from "./comment";
 
 export class Post{
 
+  public items;
+
   constructor(
     public _id: string,
     public type: string,
