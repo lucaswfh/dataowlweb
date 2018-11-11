@@ -37,7 +37,7 @@ export class ItemService {
 
   getPlantTypes(): Observable<any> {
     return this.http.get<any>(
-      this.URL + 'planttypes',
+      this.BASE_URL + 'planttypes',
       this.httpOptions
     );
   }
