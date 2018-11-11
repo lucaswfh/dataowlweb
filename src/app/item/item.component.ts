@@ -41,9 +41,7 @@ export class ItemComponent implements OnInit {
     });
 
     this.itemService.getPlantTypes().subscribe(data => {
-      data.forEach(d => {
-        this.planttypes.push(d.plantType);
-      });
+      this.planttypes = data
     });
   }
 
