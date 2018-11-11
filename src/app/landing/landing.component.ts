@@ -1,6 +1,7 @@
+import { ItemService } from './../services/item.service';
 import { Component, OnInit } from '@angular/core';
 import {DomSanitizer} from "@angular/platform-browser";
-import { PostService } from '../post.service';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-landing',
@@ -13,20 +14,21 @@ export class LandingComponent implements OnInit {
 
   posts = []
 
-  constructor(private postService: PostService, private sanitizer: DomSanitizer) {
+  constructor(private postService: PostService, private sanitizer: DomSanitizer, private itemService: ItemService) {
   }
 
   ngOnInit() {
     this.postService.getAllPosts().subscribe((posts:any[]) => {
       posts.forEach(post => {
-        console.log(post.image) 
-        this.posts.push({
-          _id: post._id,
-          //nickname: post.nickname,
-          images: [this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' + post.image)],
-          email: post.email
-        })
-      })
+        console.log(post);
+        this.itemService.getImageById(post._imageId).subscribe(data => {
+          this.posts.push({
+            _id: data._id,
+            images: [this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' + data.image)],
+            email: post.email
+          });
+        });
+      });
     });
   }
 

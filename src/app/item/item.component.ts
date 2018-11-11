@@ -40,6 +40,7 @@ export class ItemComponent implements OnInit {
               });
             });
         })
+        console.log()
     });
 
     this.itemService.getPlantTypes().subscribe(data => {

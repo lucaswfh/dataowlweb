@@ -11,6 +11,6 @@ export class PostService {
   constructor(private http: HttpClient) { }
 
   getAllPosts(): Observable<any[]> {
-    return this.http.get<any[]>(this.URL + '/allimages');
+    return this.http.get<any[]>(this.URL + '/allposts');
   }
 }
