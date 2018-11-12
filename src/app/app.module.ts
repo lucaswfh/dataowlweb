@@ -13,6 +13,7 @@ import {ItemService} from "./services/item.service";
 import {UserService} from "./services/user.service";
 import { AuthService } from './auth/auth.service';
 import { CallbackComponent } from './callback/callback.component';
+import { CheckedComponent } from './checked/checked.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CallbackComponent } from './callback/callback.component';
     WelcomeComponent,
     FooterComponent,
     ItemComponent,
-    CallbackComponent
+    CallbackComponent,
+    CheckedComponent
   ],
   imports: [
     BrowserModule,
