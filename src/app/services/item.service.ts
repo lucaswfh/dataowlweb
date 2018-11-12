@@ -2,7 +2,6 @@ import { Post } from './../model/post';
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs/index";
-import {Item} from "../model/item";
 
 @Injectable()
 export class ItemService {
@@ -39,6 +38,17 @@ export class ItemService {
     return this.http.get<any>(
       this.BASE_URL + 'planttypes',
       this.httpOptions
+    );
+  }
+
+  setChecked(post: Post): Observable<Post> {
+    return this.http.put<Post>(
+      this.URL + 'setchecked',
+      { 'imageid': post._imageIds[0] },
+      {
+        headers: new HttpHeaders()
+          .set('Authorization', `Bearer ${localStorage.getItem('access_token')}`)
+      }
     );
   }
 

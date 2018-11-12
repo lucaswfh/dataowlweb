@@ -1,10 +1,10 @@
-import { Item } from './item';
 import {Geo} from "./geo";
 import {Comment} from "./comment";
 
 export class Post{
 
   public items;
+  public checked = false;
 
   constructor(
     public _id: string,

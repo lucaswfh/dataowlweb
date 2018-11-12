@@ -26,6 +26,7 @@
             <img src="{{this.user?.picture}}" alt="Circle Image" class="img-circle img-no-padding img-responsive" style="width: 30px">
           </div>
           <h4 class="user">User: <span>{{this.user?.givenName}} {{this.user?.familyName}}</span></h4>
+          <h4 class="checked"><span>Checked: {{this.post?.checked || false}}</span></h4>
           <h5 class="coordinates">Coordinates:
             <ul>
               <li title="small">Latitude: <span>{{this.post?.geolocation.lat}}</span></li>
@@ -42,7 +43,7 @@
                   <option *ngFor="let p of planttypes">{{p}}</option>
               </select>
             </div>
-            <button *ngIf="auth.isAuthenticated()" class="btn btn-success" (click)="updateType()">Update</button>
+            <button *ngIf="auth.isAuthenticated()" style="width: 100%" class="btn btn-success" (click)="updateType()">Update</button>
           </h3>
           <div *ngIf="!auth.isAuthenticated()">
             <div class="alert alert-danger">
@@ -50,7 +51,7 @@
             </div>
           </div>
           <div *ngIf="auth.isAuthenticated()">
-            <button class="btn btn-warning" style="width: 100%">Done</button>
+            <button class="btn btn-warning" style="width: 100%" (click)="done()">Done</button>
           </div>
         </div>
       </div>

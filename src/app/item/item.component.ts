@@ -39,8 +39,7 @@ export class ItemComponent implements OnInit {
                 this.getUserByEmail(image.email);
               });
             });
-        })
-        console.log()
+        });
     });
 
     this.itemService.getPlantTypes().subscribe(data => {
@@ -56,14 +55,20 @@ export class ItemComponent implements OnInit {
     }
   }
 
+  done() {
+    this.itemService.setChecked(this.post)
+      .subscribe((post: Post) => {
+        this.post.checked = post.checked;
+      });
+  }
+
   updateType() {
     if (this.selectedType != this.selectTypeDefault) {
       const access_token = localStorage.getItem('access_token');
-      console.log(access_token);
-      this.itemService.updateType(this.selectedType, this.post, access_token).subscribe(post => {
-        this.post.type = post.type;
-        console.log(post);
-      });
+      this.itemService.updateType(this.selectedType, this.post, access_token)
+        .subscribe(post => {
+          this.post.type = post.type;
+        });
     } else {
       // TODO: avisar que no se selecciono ningun type
     }
