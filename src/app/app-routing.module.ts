@@ -4,7 +4,6 @@ import {LandingComponent} from './landing/landing.component';
 import {WelcomeComponent} from "./welcome/welcome.component";
 import {ItemComponent} from "./item/item.component";
 import { CallbackComponent } from './callback/callback.component';
-import { CheckedComponent } from './checked/checked.component';
 
 const routes: Routes = [
   { path: 'landing',      component: LandingComponent },
