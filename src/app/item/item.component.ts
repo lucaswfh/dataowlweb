@@ -1,6 +1,6 @@
 import { DomSanitizer } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ItemService} from "../services/item.service";
 import {UserService} from "../services/user.service";
 import { Post, addItem } from '../model/post';
@@ -25,7 +25,8 @@ export class ItemComponent implements OnInit {
     private itemService: ItemService,
     private userService: UserService,
     public auth: AuthService,
-    public sanitizer: DomSanitizer) { }
+    public sanitizer: DomSanitizer,
+    public router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -52,6 +53,16 @@ export class ItemComponent implements OnInit {
       this.userService.getUserByEmail(email).subscribe((user: User) => {
         if (!this.user) this.user = user;
       });
+    }
+  }
+
+  deletePost() {
+    if(confirm("Are you sure?")) {
+      console.log(this.post);
+      this.itemService.deletePost(this.post) 
+        .subscribe(data => {
+          this.router.navigate(['/welcome']);
+        });
     }
   }
 

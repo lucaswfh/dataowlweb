@@ -2,12 +2,13 @@ import { Post } from './../model/post';
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs/index";
+import { stringify } from '@angular/core/src/render3/util';
 
 @Injectable()
 export class ItemService {
 
-  // BASE_URL = 'http://localhost:3000/';
-  BASE_URL = 'https://data-owl.herokuapp.com/';
+  BASE_URL = 'http://localhost:3000/';
+  // BASE_URL = 'https://data-owl.herokuapp.com/';
 
   URL         = this.BASE_URL + 'post/';
   PRIVATE_URL = this.BASE_URL + 'private/post/';
@@ -45,6 +46,17 @@ export class ItemService {
     return this.http.put<Post>(
       this.URL + 'setchecked',
       { 'imageid': post._imageIds[0] },
+      {
+        headers: new HttpHeaders()
+          .set('Authorization', `Bearer ${localStorage.getItem('access_token')}`)
+      }
+    );
+  }
+
+  deletePost(post: Post): Observable<string> {
+    console.log(post._imageIds[0]);
+    return this.http.delete<string>(
+      this.URL + post._imageIds[0],
       {
         headers: new HttpHeaders()
           .set('Authorization', `Bearer ${localStorage.getItem('access_token')}`)
