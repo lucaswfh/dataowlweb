@@ -13,11 +13,12 @@ export class LandingComponent implements OnInit {
 
   images = []
   posts = []
+  postSize = []
   mode = null;
 
   constructor(
-    private postService: PostService, 
-    private sanitizer: DomSanitizer, 
+    private postService: PostService,
+    private sanitizer: DomSanitizer,
     private itemService: ItemService,
     private router: Router) {
       this.mode = this.router.url;
@@ -38,10 +39,20 @@ export class LandingComponent implements OnInit {
               images: [this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' + data.image)],
               email: post.email
             });
+
+            this.calculatePostSize()
           });
         }
       });
     });
   }
 
+  private calculatePostSize() {
+    var amount = this.posts.length / 4
+
+    for(var _i = 0; _i < amount; _i++){
+
+      this.postSize.push(_i)
+    }
+  }
 }

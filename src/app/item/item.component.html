@@ -5,7 +5,7 @@
         <div class="preview col-md-6">
 
           <div class="preview-pic tab-content">
-              <div *ngFor="let i of post?.items; let isFirst = first; let pos=index" class="tab-pane" [class.active]="isFirst" id="{{pos}}" style="width: 75%; height: 75%">
+              <div *ngFor="let i of post?.items; let isFirst = first; let pos=index" class="tab-pane" [class.active]="isFirst" id="{{pos}}" style="width: 50%; height: 75%">
                 <img [src]="this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' + i.image)" />
               </div>
           </div>
@@ -43,19 +43,16 @@
                   <option *ngFor="let p of planttypes">{{p}}</option>
               </select>
             </div>
-            <button *ngIf="auth.isAuthenticated()" style="width: 100%" class="btn btn-success" (click)="updateType()">Update</button>
+            <button *ngIf="auth.isAuthenticated()" style="width: 99%" class="btn btn-warning" (click)="updateType()">Update</button>
           </h3>
           <div *ngIf="!auth.isAuthenticated()">
             <div class="alert alert-danger">
               You must be logged to do changes on the database.
             </div>
           </div>
-          <div *ngIf="auth.isAuthenticated()">
-            <button class="btn btn-warning" style="width: 100%" (click)="done()">Done</button>
-          </div>
-          <br />
-          <div *ngIf="auth.isAuthenticated()">
-            <button class="btn btn-danger" style="width: 100%" (click)="deletePost()">Delete</button>
+          <div *ngIf="auth.isAuthenticated()" class="btn-toolbar" style="width:100%;" >
+            <button class="btn btn-success" style="width: 49%" (click)="done()">Done</button>
+            <button class="btn btn-danger" style="width: 49%" (click)="deletePost()">Delete</button>
           </div>
         </div>
       </div>
