@@ -7,8 +7,8 @@ import { stringify } from '@angular/core/src/render3/util';
 @Injectable()
 export class ItemService {
 
-  BASE_URL = 'http://localhost:3000/';
-  // BASE_URL = 'https://data-owl.herokuapp.com/';
+  // BASE_URL = 'http://localhost:3000/';
+  BASE_URL = 'https://data-owl.herokuapp.com/';
 
   URL         = this.BASE_URL + 'post/';
   PRIVATE_URL = this.BASE_URL + 'private/post/';
