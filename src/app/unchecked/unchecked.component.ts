@@ -14,6 +14,7 @@ export class UncheckedComponent implements OnInit {
   images = []
   posts = []
   postSize = []
+  itemsPerRow = 3
   mode = null;
 
   constructor(
@@ -29,9 +30,6 @@ export class UncheckedComponent implements OnInit {
       const mode = this.router.url;
       posts.forEach(post => {
         const postMode = post.checked ? '/checked' : '/unchecked';
-        console.log(post);
-        console.log(mode);
-        console.log(postMode);
         if (mode == postMode) {
           this.itemService.getImageById(post._imageId).subscribe(data => {
             this.posts.push({
@@ -39,7 +37,6 @@ export class UncheckedComponent implements OnInit {
               images: [this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' + data.image)],
               email: post.email
             });
-
             this.calculatePostSize()
           });
         }
@@ -51,8 +48,9 @@ export class UncheckedComponent implements OnInit {
     var amount = this.posts.length / 3
 
     for(var _i = 0; _i < amount; _i++){
-
-      this.postSize.push(_i)
+      if(this.postSize.indexOf(this.postSize[_i]) == -1) {
+        this.postSize.push(_i)
+      }
     }
   }
 }

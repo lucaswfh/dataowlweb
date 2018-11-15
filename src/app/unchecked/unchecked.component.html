@@ -22,14 +22,14 @@
       <div id="Carousel" class="carousel slide">
 
         <ol class="carousel-indicators">
-          <li *ngFor="let ps of postSize; let isFirstT = first" [class.active]="isFirstT" data-target="#Carousel" data-slide-to="ps"></li>
+          <li *ngFor="let ps of postSize; let isFirstT = first" [class.active]="isFirstT" data-target="#Carousel" [attr.data-slide-to]="ps"></li>
         </ol>
 
         <!-- Carousel items -->
         <div class="carousel-inner">
-          <div class="item active">
+          <div *ngFor="let i of postSize; let isFirstT = first" [class.active]="isFirstT" class="item">
             <div class="row">
-              <div *ngFor="let post of posts" class="col-md-4">
+              <div *ngFor="let post of posts | slice:(i*itemsPerRow):((i+1)*itemsPerRow)" class="col-md-4">
                 <div class="thumbnail" routerLinkActive="active">
                   <a [routerLink]="['/item', post._id]">
                     <img [src]="post.images[0]" style="width:100%">
@@ -37,56 +37,10 @@
                       <p>Sent By: {{post.email}} </p>
                     </div>
                   </a>
-                </div>
-              </div>
-              <!--
-              <div *ngFor="let item of items; let i = index">
-                <div *ngIf="i % 5 == 0" class="row">
-                  {{ item }}
-                  <div *ngIf="i + 1 < items.length">
-                    {{ items[i + 1] }}
-                  </div>
-                  <div *ngIf="i + 2 < items.length">
-                    {{ items[i + 2] }}
-                  </div>
-                  <div *ngIf="i + 3 < items.length">
-                    {{ items[i + 3] }}
-                  </div>
-                  <div *ngIf="i + 4 < items.length">
-                    {{ items[i + 4] }}
-                  </div>
-                </div>
-              </div>
-
-              -->
-              <!--
-              <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-              <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-              <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-              <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-              -->
+                </div><!--.thumbnail-->
+              </div><!--.ngFor-->
             </div><!--.row-->
           </div><!--.item-->
-          <!--
-          <div class="item">
-            <div class="row">
-              <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-              <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-              <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-              <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-            </div><!--.row--><!--
-          </div><!--.item-->
-
-          <!--
-          <div class="item">
-            <div class="row">
-              <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-              <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-              <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-              <div class="col-md-3"><a href="#" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;"></a></div>
-            </div><!--.row--><!--
-          </div><!--.item-->
-
         </div><!--.carousel-inner-->
         <a data-slide="prev" href="#Carousel" class="left carousel-control">‹</a>
         <a data-slide="next" href="#Carousel" class="right carousel-control">›</a>
