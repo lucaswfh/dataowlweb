@@ -6,10 +6,10 @@ import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-landing',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.css']
+  templateUrl: './unchecked.component.html',
+  styleUrls: ['./unchecked.component.css']
 })
-export class LandingComponent implements OnInit {
+export class UncheckedComponent implements OnInit {
 
   images = []
   posts = []
@@ -48,7 +48,7 @@ export class LandingComponent implements OnInit {
   }
 
   private calculatePostSize() {
-    var amount = this.posts.length / 4
+    var amount = this.posts.length / 3
 
     for(var _i = 0; _i < amount; _i++){
 

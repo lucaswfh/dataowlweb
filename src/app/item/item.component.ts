@@ -59,7 +59,7 @@ export class ItemComponent implements OnInit {
   deletePost() {
     if(confirm("Are you sure?")) {
       console.log(this.post);
-      this.itemService.deletePost(this.post) 
+      this.itemService.deletePost(this.post)
         .subscribe(data => {
           this.router.navigate(['/welcome']);
         });
@@ -71,6 +71,7 @@ export class ItemComponent implements OnInit {
       .subscribe((post: Post) => {
         this.post.checked = post.checked;
       });
+
   }
 
   updateType() {

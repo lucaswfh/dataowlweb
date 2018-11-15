@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {LandingComponent} from './landing/landing.component';
+import {UncheckedComponent} from './unchecked/unchecked.component';
 import {WelcomeComponent} from "./welcome/welcome.component";
 import {ItemComponent} from "./item/item.component";
 import { CallbackComponent } from './callback/callback.component';
 
 const routes: Routes = [
-  { path: 'landing',      component: LandingComponent },
-  { path: 'checked',      component: LandingComponent },
+  { path: 'unchecked',      component: UncheckedComponent },
+  { path: 'checked',      component: UncheckedComponent },
   { path: 'callback',      component: CallbackComponent },
   { path: 'welcome',      component: WelcomeComponent },
   { path: 'item',         component: ItemComponent },
