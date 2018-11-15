@@ -5,7 +5,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 import { PostService } from '../services/post.service';
 
 @Component({
-  selector: 'app-landing',
+  selector: 'app-unchecked',
   templateUrl: './unchecked.component.html',
   styleUrls: ['./unchecked.component.css']
 })
@@ -28,7 +28,7 @@ export class UncheckedComponent implements OnInit {
     this.postService.getAllPosts().subscribe((posts:any[]) => {
       const mode = this.router.url;
       posts.forEach(post => {
-        const postMode = post.checked ? '/checked' : '/landing';
+        const postMode = post.checked ? '/checked' : '/unchecked';
         console.log(post);
         console.log(mode);
         console.log(postMode);
