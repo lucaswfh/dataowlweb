@@ -19,7 +19,7 @@ export class AuthService {
     // redirectUri: 'http://localhost:4200/callback',
     redirectUri: 'https://data-owl-frontend.herokuapp.com/callback',
     audience: 'https://pure-wildwood-74137.herokuapp.com/',
-    scope: 'openid email profile' 
+    scope: 'openid email profile'
   });
 
   constructor(public router: Router) {}
@@ -66,12 +66,12 @@ export class AuthService {
   }
 
   public getProfile(cb): void {
-    // Gets user profile 
+    // Gets user profile
     const accessToken = localStorage.getItem('access_token');
     if (!accessToken) {
       throw new Error('Access Token must exist to fetch profile');
     }
-  
+
     const self = this;
     this.auth0.client.userInfo(accessToken, (err, profile) => {
       if (profile) {

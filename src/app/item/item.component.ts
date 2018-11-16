@@ -61,12 +61,10 @@ export class ItemComponent implements OnInit {
     if(confirm("Are you sure?")) {
       console.log(this.post);
       this.itemService.deletePost(this.post)
-        .subscribe(data => {
-          console.log("paso por aca")
-          this.router.navigate(['/unchecked']);
-        });
+        .subscribe(data => {});
     }
     this.router.navigate(['/unchecked'])
+    location.reload()
   }
 
   done() {
