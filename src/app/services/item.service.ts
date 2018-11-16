@@ -64,13 +64,13 @@ export class ItemService {
     );
   }
 
-  updateType(newType: string, post: Post, access_token: string): Observable<Post> {
-    console.log(access_token);
+  updateType(newType: string, email: string, post: Post, access_token: string): Observable<Post> {
     return this.http.put<Post>(
       this.URL + 'updatetype',
       {
         imageid: post._imageIds[0],
-        newtype: newType
+        newtype: newType,
+        email: email
       },
       {
         headers: new HttpHeaders()

@@ -77,10 +77,16 @@ export class ItemComponent implements OnInit {
   updateType() {
     if (this.selectedType != this.selectTypeDefault) {
       const access_token = localStorage.getItem('access_token');
-      this.itemService.updateType(this.selectedType, this.post, access_token)
-        .subscribe(post => {
-          this.post.type = post.type;
-        });
+      this.auth.getProfile((err, profile) => {
+        if (err) {
+          // TOOD: levantar excepcion
+        } else {
+          this.itemService.updateType(this.selectedType, profile.email, this.post, access_token)
+            .subscribe(post => {
+              this.post.type = post.type;
+            });
+        }
+      });
     } else {
       // TODO: avisar que no se selecciono ningun type
     }
