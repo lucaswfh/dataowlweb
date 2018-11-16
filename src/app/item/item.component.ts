@@ -85,7 +85,7 @@ export class ItemComponent implements OnInit {
         console.log(profile);
           this.itemService.updateType(this.selectedType, profile.name, this.post, access_token)
             .subscribe(post => {
-              this.post.type = post.type;
+              this.post.type = post.comments[post.comments.length -1].comment;
             });
         }
       });
