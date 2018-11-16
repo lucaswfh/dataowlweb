@@ -6,8 +6,8 @@ import {Observable} from "rxjs/index";
 @Injectable()
 export class ItemService {
 
-  // BASE_URL = 'http://localhost:3000/';
-  BASE_URL = 'https://data-owl.herokuapp.com/';
+  BASE_URL = 'http://localhost:3000/';
+  // BASE_URL = 'https://data-owl.herokuapp.com/';
 
   URL         = this.BASE_URL + 'post/';
   PRIVATE_URL = this.BASE_URL + 'private/post/';
@@ -41,31 +41,31 @@ export class ItemService {
     );
   }
 
-  setChecked(post: Post): Observable<Post> {
+  setChecked(post: Post, access_token: string): Observable<Post> {
     return this.http.put<Post>(
-      this.URL + 'setchecked',
+      this.PRIVATE_URL + 'setchecked',
       { 'imageid': post._imageIds[0] },
       {
         headers: new HttpHeaders()
-          .set('Authorization', `Bearer ${localStorage.getItem('access_token')}`)
+          .set('Authorization', access_token)
       }
     );
   }
 
-  deletePost(post: Post): Observable<string> {
+  deletePost(post: Post, access_token: string): Observable<string> {
     console.log(post._imageIds[0]);
     return this.http.delete<string>(
-      this.URL + post._imageIds[0],
+      this.PRIVATE_URL + post._imageIds[0],
       {
         headers: new HttpHeaders()
-          .set('Authorization', `Bearer ${localStorage.getItem('access_token')}`)
+          .set('Authorization', access_token)
       }
     );
   }
 
   updateType(newType: string, email: string, post: Post, access_token: string): Observable<Post> {
     return this.http.put<Post>(
-      this.URL + 'updatetype',
+      this.PRIVATE_URL + 'updatetype',
       {
         imageid: post._imageIds[0],
         newtype: newType,
@@ -73,7 +73,7 @@ export class ItemService {
       },
       {
         headers: new HttpHeaders()
-          .set('Authorization', `Bearer ${localStorage.getItem('access_token')}`)
+          .set('Authorization', access_token)
       }
     );
   }

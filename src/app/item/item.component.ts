@@ -60,24 +60,27 @@ export class ItemComponent implements OnInit {
   deletePost() {
     if(confirm("Are you sure?")) {
       console.log(this.post);
-      this.itemService.deletePost(this.post)
+      this.itemService.deletePost(this.post, this.access_token())
         .subscribe(data => {});
     }
     this.router.navigate(['/unchecked'])
     location.reload()
   }
 
+  access_token() {
+    return `Bearer ${localStorage.getItem('access_token')}`;
+  }
+
   done() {
-    this.itemService.setChecked(this.post)
+    this.itemService.setChecked(this.post, this.access_token())
       .subscribe((post: Post) => {
         this.post.checked = post.checked;
       });
-
   }
 
   updateType() {
     if (this.selectedType != this.selectTypeDefault) {
-      const access_token = localStorage.getItem('access_token');
+      const access_token = this.access_token()
       this.auth.getProfile((err, profile) => {
         if (err) {
           // TOOD: levantar excepcion
