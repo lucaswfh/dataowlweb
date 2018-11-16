@@ -16,14 +16,10 @@ export class AuthService {
     clientID: 'EfAVi1IyWH06oP1U17hRSrgtbuX4dKxg',
     domain: 'killscript.auth0.com',
     responseType: 'token id_token',
-    redirectUri: 'http://localhost:4200/callback',
-    // redirectUri: 'https://data-owl-frontend.herokuapp.com/callback',
+    //redirectUri: 'http://localhost:4200/callback',
+    redirectUri: 'https://data-owl-frontend.herokuapp.com/callback',
     audience: 'https://pure-wildwood-74137.herokuapp.com/',
-<<<<<<< HEAD
-    scope: 'openid email profile'
-=======
-    scope: 'openid profile' 
->>>>>>> d7bb93f05357c4e0dab6e2aae7b5e87d821e96d7
+    scope: 'openid profile'
   });
 
   constructor(public router: Router) {}
