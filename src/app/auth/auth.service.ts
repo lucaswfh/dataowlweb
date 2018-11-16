@@ -16,8 +16,8 @@ export class AuthService {
     clientID: 'EfAVi1IyWH06oP1U17hRSrgtbuX4dKxg',
     domain: 'killscript.auth0.com',
     responseType: 'token id_token',
-    //redirectUri: 'http://localhost:4200/callback',
-    redirectUri: 'https://data-owl-frontend.herokuapp.com/callback',
+    redirectUri: 'http://localhost:4200/callback',
+    //redirectUri: 'https://data-owl-frontend.herokuapp.com/callback',
     audience: 'https://pure-wildwood-74137.herokuapp.com/',
     scope: 'openid profile'
   });
