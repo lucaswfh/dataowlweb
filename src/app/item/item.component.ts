@@ -62,9 +62,11 @@ export class ItemComponent implements OnInit {
       console.log(this.post);
       this.itemService.deletePost(this.post)
         .subscribe(data => {
-          this.router.navigate(['/welcome']);
+          console.log("paso por aca")
+          this.router.navigate(['/unchecked']);
         });
     }
+    this.router.navigate(['/unchecked'])
   }
 
   done() {
