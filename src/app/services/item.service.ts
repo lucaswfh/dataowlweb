@@ -2,7 +2,6 @@ import { Post } from './../model/post';
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs/index";
-import { stringify } from '@angular/core/src/render3/util';
 
 @Injectable()
 export class ItemService {
