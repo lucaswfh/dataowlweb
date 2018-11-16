@@ -26,8 +26,8 @@
             <img src="{{this.user?.picture}}" alt="Circle Image" class="img-circle img-no-padding img-responsive" style="width: 30px">
           </div>
           <h4 class="user">User: <span>{{this.user?.givenName}} {{this.user?.familyName}}</span></h4>
-          <h4 *ngIf="post.checked" class="checked"><span>Checked: This post was checked by {{post.comments[post.comments.length].nickname}}</span></h4>
-          <h4 *ngIf="!post.checked" class="checked"><span>Checked: This post hasn't been checked yet</span></h4>
+          <h4 *ngIf="post?.checked" class="user">Checked: <span>This post was checked by {{post.comments[post.comments.length].nickname}}</span></h4>
+          <h4 *ngIf="!post?.checked" class="user">Checked: <span>This post hasn't been checked yet</span></h4>
           <h5 class="coordinates">Coordinates:
             <ul>
               <li title="small">Latitude: <span>{{this.post?.geolocation.lat}}</span></li>
