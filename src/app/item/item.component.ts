@@ -32,6 +32,7 @@ export class ItemComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.itemService.getPostById(params['itemId'])
         .subscribe((post:Post) => {
+            console.log(post);
             this.post = post;
             this.post._imageIds.forEach(imageId => {
               this.itemService.getImageById(imageId)
@@ -81,7 +82,8 @@ export class ItemComponent implements OnInit {
         if (err) {
           // TOOD: levantar excepcion
         } else {
-          this.itemService.updateType(this.selectedType, profile.email, this.post, access_token)
+        console.log(profile);
+          this.itemService.updateType(this.selectedType, profile.name, this.post, access_token)
             .subscribe(post => {
               this.post.type = post.type;
             });
