@@ -1,5 +1,6 @@
 <div class="container" style="padding-top: 50px">
   <div class="row">
+<<<<<<< HEAD
     <table id="tablePlant" class="display">
       <tr>
         <th>Plant Types</th>
@@ -21,9 +22,36 @@
           <span class="input-group-btn">
             <button class="btn btn-success btn-round" (click)="addNewType()">Add</button>
           </span>
+=======
+    <div class="column">
+      <table id="tablePlant" class="display">
+        <tr>
+          <th>Plant Types</th>
+          <th> </th>
+        </tr>
+        <tr *ngFor="let p of plants">
+          <td>{{p}}</td>
+          <td class="form-check-label">
+            <button type=button class="label label-warning" (click)="updateType(p)">Update</button>
+            <button type=button class="label label-danger" (click)="deleteType(p)">Delete</button>
+          </td>
+        </tr>
+      </table>
+      <div class="input-bar" style="padding-top: 20px">
+        <div class="input-bar-item">
+          <form>
+            <div class="input-group">
+              <input name="newType" type="text" class="form-control" [(ngModel)]="newType">
+              <span class="input-group-btn">
+                <button class="btn btn-success btn-round" (click)="addNewType()">Add</button>
+              </span>
+            </div>
+          </form>
+>>>>>>> eee44e23d5a1a2a302c9bf25b58b96a77a5e7434
         </div>
-      </form>
+      </div>
     </div>
+<<<<<<< HEAD
   </div>
 </div>
 
@@ -48,8 +76,31 @@
           <span class="input-group-btn">
             <button class="btn btn-success btn-round" (click)="addNewAdmin()">Add</button>
           </span>
+=======
+    <div class="column">
+      <table id="tableAdmin2" class="display">
+        <tr>
+          <th>Admin</th>
+        </tr>
+        <tr *ngFor="let a of admins">
+          <td>{{a}}</td>
+        </tr>
+      </table>
+      <div class="input-bar" style="padding-top: 20px">
+        <div class="input-bar-item">
+          <form>
+            <div class="input-group">
+              <select style="width: 90%">
+                <option name="newAdmin" *ngFor="let u of users" [(ngModel)]="newAdmin">{{u}}</option>
+              </select>
+              <span class="input-group-btn">
+                <button class="btn btn-success btn-round" (click)="addNewAdmin()">Add</button>
+              </span>
+            </div>
+          </form>
+>>>>>>> eee44e23d5a1a2a302c9bf25b58b96a77a5e7434
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
