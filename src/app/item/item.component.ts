@@ -77,6 +77,7 @@ export class ItemComponent implements OnInit {
         this.post.checked = post.checked;
       });
     this.router.navigate(['/checked'])
+    location.reload()
   }
 
   updateType() {
