@@ -14,6 +14,7 @@ import {UserService} from "./services/user.service";
 import { AuthService } from './auth/auth.service';
 import { CallbackComponent } from './callback/callback.component';
 import { CheckedComponent } from './checked/checked.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { CheckedComponent } from './checked/checked.component';
     FooterComponent,
     ItemComponent,
     CallbackComponent,
-    CheckedComponent
+    CheckedComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

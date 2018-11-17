@@ -6,8 +6,8 @@ import {Observable} from "rxjs/index";
 @Injectable()
 export class ItemService {
 
-  BASE_URL = 'http://localhost:3000/';
-  // BASE_URL = 'https://data-owl.herokuapp.com/';
+  // BASE_URL = 'http://localhost:3000/';
+  BASE_URL = 'https://data-owl.herokuapp.com/';
 
   URL         = this.BASE_URL + 'post/';
   PRIVATE_URL = this.BASE_URL + 'private/post/';
@@ -38,6 +38,27 @@ export class ItemService {
     return this.http.get<any>(
       this.BASE_URL + 'planttypes',
       this.httpOptions
+    );
+  }
+
+  addNewType(access_token: string, type:string): Observable<any> {
+    return this.http.post<any>(
+      this.BASE_URL + 'private/crplant',
+      { 'plant': type, 'access_token': access_token },
+      {
+        headers: new HttpHeaders()
+          .set('Authorization', access_token)
+      }
+    );
+  }
+
+  deleteType(access_token: string, type:string): Observable<any> {
+    return this.http.delete<any>(
+      this.BASE_URL + 'private/plant/' + type,
+      {
+        headers: new HttpHeaders()
+          .set('Authorization', access_token)
+      }
     );
   }
 
