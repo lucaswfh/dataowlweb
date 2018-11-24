@@ -15,6 +15,8 @@ import { AuthService } from './auth/auth.service';
 import { CallbackComponent } from './callback/callback.component';
 import { CheckedComponent } from './checked/checked.component';
 import { AdminComponent } from './admin/admin.component';
+import { MapPageComponent } from './map-page/map-page.component';
+import {AgmCoreModule} from "@agm/core";
 
 
 @NgModule({
@@ -27,13 +29,17 @@ import { AdminComponent } from './admin/admin.component';
     ItemComponent,
     CallbackComponent,
     CheckedComponent,
-    AdminComponent
+    AdminComponent,
+    MapPageComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAulU6QWzQnOcPRlTM4ofpFXL1Dh65_Y4k'
+    })
   ],
   providers: [ItemService, UserService, AuthService],
   bootstrap: [AppComponent]

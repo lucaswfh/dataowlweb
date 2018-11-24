@@ -32,7 +32,6 @@ export class ItemComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.itemService.getPostById(params['itemId'])
         .subscribe((post:Post) => {
-            console.log(post);
             this.post = post;
             this.post._imageIds.forEach(imageId => {
               this.itemService.getImageById(imageId)
@@ -103,4 +102,7 @@ export class ItemComponent implements OnInit {
     return this.post.items;
   }
 
+  goToMap() {
+    this.router.navigate(['/map-page'], {queryParams: {lat: this.post.geolocation.lat, lng: this.post.geolocation.lng, id: this.post._imageIds[0]}})
+  }
 }

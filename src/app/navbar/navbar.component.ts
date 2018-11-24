@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  // gets user profile, asumes logged in 
+  // gets user profile, asumes logged in
   getUserProfile() {
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;

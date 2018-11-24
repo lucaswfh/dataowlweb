@@ -34,7 +34,7 @@
               <li title="small">Latitude: <span>{{this.post?.geolocation.lat}}</span></li>
               <li title="medium">Longitude: <span>{{this.post?.geolocation.lng}}</span></li>
             </ul>
-            <button class="btn btn-success">Go to map</button>
+            <button class="btn btn-success" (click)="goToMap()">Go to map</button>
             <hr>
           </h5>
           <h3 class="product-title">
