@@ -62,10 +62,11 @@ export class ItemService {
     );
   }
 
-  setChecked(post: Post, access_token: string): Observable<Post> {
+  setChecked(post: Post, email:string, access_token: string): Observable<Post> {
     return this.http.put<Post>(
       this.PRIVATE_URL + 'setchecked',
-      { 'imageid': post._imageIds[0] },
+      { 'imageid': post._imageIds[0],
+          'email': email },
       {
         headers: new HttpHeaders()
           .set('Authorization', access_token)

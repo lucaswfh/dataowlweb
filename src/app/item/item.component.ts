@@ -72,12 +72,24 @@ export class ItemComponent implements OnInit {
   }
 
   done() {
-    this.itemService.setChecked(this.post, this.access_token())
-      .subscribe((post: Post) => {
-        this.post.checked = post.checked;
+    // this.itemService.setChecked(this.post, this.access_token())
+    //   .subscribe((post: Post) => {
+    //     this.post.checked = post.checked;
+    //   });
+    // this.router.navigate(['/checked'])
+    // location.reload()
+      const access_token = this.access_token()
+      this.auth.getProfile((err, profile) => {
+        if (err) {
+          // TOOD: levantar excepcion
+        } else {
+          this.itemService.setChecked(this.post, profile.name, access_token)
+            .subscribe(post => {
+              this.router.navigate(['/checked'])
+              location.reload()
+            });
+        }
       });
-    this.router.navigate(['/checked'])
-    location.reload()
   }
 
   updateType() {
@@ -87,7 +99,6 @@ export class ItemComponent implements OnInit {
         if (err) {
           // TOOD: levantar excepcion
         } else {
-        console.log(profile);
           this.itemService.updateType(this.selectedType, profile.name, this.post, access_token)
             .subscribe(post => {
               this.post.type = post.comments[post.comments.length -1].comment;

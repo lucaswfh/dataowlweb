@@ -19,7 +19,7 @@ export class AuthService {
     // redirectUri: 'http://localhost:4200/callback',
     redirectUri: 'https://data-owl-frontend.herokuapp.com/callback',
     audience: 'https://pure-wildwood-74137.herokuapp.com/',
-    scope: 'openid profile'
+    scope: 'openid profile email read:current_user'
   });
 
   constructor(public router: Router) {}
