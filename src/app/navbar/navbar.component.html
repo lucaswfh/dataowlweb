@@ -6,7 +6,7 @@
     <ul class="nav navbar-nav">
       <li><a routerLink="/unchecked">Unchecked</a></li>
       <li><a routerLink="/checked">Checked</a></li>
-      <li *ngIf="auth.isAuthenticated() && profile?.is_admin"><a routerLink="/admin">Admin Section</a></li>
+      <li *ngIf="auth.isAuthenticated()"><a routerLink="/admin">Admin Section</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a *ngIf="auth.isAuthenticated()"><span>Logged in as {{profile?.given_name}}</span></a></li>
