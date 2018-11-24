@@ -76,6 +76,8 @@ export class ItemComponent implements OnInit {
       .subscribe((post: Post) => {
         this.post.checked = post.checked;
       });
+    this.router.navigate(['/checked'])
+    location.reload()
   }
 
   updateType() {
