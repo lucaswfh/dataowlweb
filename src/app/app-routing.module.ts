@@ -5,6 +5,7 @@ import {WelcomeComponent} from "./welcome/welcome.component";
 import {ItemComponent} from "./item/item.component";
 import { CallbackComponent } from './callback/callback.component';
 import {AdminComponent} from "./admin/admin.component";
+import {MapPageComponent} from "./map-page/map-page.component";
 
 const routes: Routes = [
   { path: 'unchecked',      component: UncheckedComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'admin',        component: AdminComponent},
   { path: 'item',         component: ItemComponent },
   { path: 'item/:itemId',         component: ItemComponent },
+  { path: 'map-page',     component: MapPageComponent},
   { path: '', redirectTo: '/welcome', pathMatch: 'full'}
 ]
 

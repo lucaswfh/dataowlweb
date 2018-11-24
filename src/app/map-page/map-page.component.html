@@ -1,0 +1,11 @@
+<div style="padding-top: 20px; padding-left: 20px">
+  <a [routerLink]="['/item', id]">Back to Post</a>
+</div>
+<div class="container">
+  <agm-map id="map" [latitude]="lat" [longitude]="lng" [zoom]="mapZoom">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAulU6QWzQnOcPRlTM4ofpFXL1Dh65_Y4k&libraries=geometry">
+</script>
